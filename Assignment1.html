@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Debugging Exercises</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">FA</a>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">PARTNERS</a></li>
+                    <li><a href="assignment1.html">ASSIGNMENT 1</a></li>
+                    <li><a href="assignment1b.html">ASSIGNMENT 1b</a></li>
+                    <li><a href="assignment2.html">ASSIGNMENT 2</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="exercise">
+        <h2>Exercise 1: String Concatenation Issue</h2>
+        <div class="code-container">
+            &lt;script type="text/javascript"&gt;<br>
+            &nbsp;&nbsp;var n1 = prompt("Please enter a number.");<br>
+            &nbsp;&nbsp;var n2 = prompt("Please enter another number.");<br>
+            &nbsp;&nbsp;alert("The sum of "+n1+" and "+n2+" is "+ n1+n2);<br>
+            &lt;/script&gt;
+        </div>
+        
+        <div class="observation">
+            <h3>Observation:</h3>
+            <p>The issue here is that the <code>prompt()</code> function returns string values. When we use the <code>+</code> operator with strings, it performs concatenation instead of addition. So if the user enters "5" and "3", the result will be "53" instead of 8.</p>
+        </div>
+
+        <div class="test-area">
+            <h3>Test the original code:</h3>
+            <button onclick="runExercise1()">Run Exercise 1</button>
+            <div class="result" id="result1"></div>
+        </div>
+
+        <div class="corrected">
+            <h3>Corrected Code:</h3>
+            <div class="code-container">
+                &lt;script type="text/javascript"&gt;<br>
+                &nbsp;&nbsp;var n1 = Number(prompt("Please enter a number."));<br>
+                &nbsp;&nbsp;var n2 = Number(prompt("Please enter another number."));<br>
+                &nbsp;&nbsp;alert("The sum of "+n1+" and "+n2+" is "+ (n1+n2));<br>
+                &lt;/script&gt;
+            </div>
+            <div class="note">
+                <p><strong>Fix:</strong> Convert the string inputs to numbers using <code>Number()</code> and group the addition operation with parentheses to ensure proper evaluation.</p>
+            </div>
+        </div>
+
+        <div class="test-area">
+            <h3>Test the corrected code:</h3>
+            <button onclick="runCorrected1()">Run Corrected Exercise 1</button>
+            <div class="result" id="resultCorrected1"></div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h2>Exercise 2: Type Conversion Issue</h2>
+        <div class="code-container">
+            &lt;script type="text/javascript"&gt;<br>
+            &nbsp;&nbsp;var n1 = 1*prompt("Please enter a number.");<br>
+            &nbsp;&nbsp;var n2 = 1*prompt("Please enter another number.");<br>
+            &nbsp;&nbsp;alert("The sum of "+n1+" and "+n2+" is "+ n1+n2);<br>
+            &lt;/script&gt;
+        </div>
+        
+        <div class="observation">
+            <h3>Observation:</h3>
+            <p>This code attempts to convert strings to numbers by multiplying with 1, which works. However, the alert statement still has an issue: the expression <code>n1+n2</code> is evaluated after string concatenation, so it's treated as string concatenation again instead of numeric addition.</p>
+        </div>
+
+        <div class="test-area">
+            <h3>Test the original code:</h3>
+            <button onclick="runExercise2()">Run Exercise 2</button>
+            <div class="result" id="result2"></div>
+        </div>
+
+        <div class="corrected">
+            <h3>Corrected Code:</h3>
+            <div class="code-container">
+                &lt;script type="text/javascript"&gt;<br>
+                &nbsp;&nbsp;var n1 = 1*prompt("Please enter a number.");<br>
+                &nbsp;&nbsp;var n2 = 1*prompt("Please enter another number.");<br>
+                &nbsp;&nbsp;alert("The sum of "+n1+" and "+n2+" is "+ (n1+n2));<br>
+                &lt;/script&gt;
+            </div>
+            <div class="note">
+                <p><strong>Fix:</strong> The numeric conversion works correctly, but we need to use parentheses to ensure the addition is performed before the string concatenation.</p>
+            </div>
+        </div>
+
+        <div class="test-area">
+            <h3>Test the corrected code:</h3>
+            <button onclick="runCorrected2()">Run Corrected Exercise 2</button>
+            <div class="result" id="resultCorrected2"></div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h2>Exercise 3: Syntax Error</h2>
+        <div class="code-container">
+            &lt;script type="text/javascript"&gt;<br>
+            &nbsp;&nbsp;Var x = 2*2<br>
+            &nbsp;&nbsp;document.write("x=", x)<br>
+            &lt;/script&gt;
+        </div>
+        
+        <div class="observation">
+            <h3>Observation:</h3>
+            <p>This code has two issues:</p>
+            <ol>
+                <li>JavaScript is case-sensitive, so <code>Var</code> should be <code>var</code> (lowercase)</li>
+                <li>The <code>document.write()</code> method uses a comma instead of a + for concatenation</li>
+            </ol>
+        </div>
+
+        <div class="test-area">
+            <h3>Test the original code:</h3>
+            <button onclick="runExercise3()">Run Exercise 3</button>
+            <div class="result" id="result3"></div>
+        </div>
+
+        <div class="corrected">
+            <h3>Corrected Code:</h3>
+            <div class="code-container">
+                &lt;script type="text/javascript"&gt;<br>
+                &nbsp;&nbsp;var x = 2*2;<br>
+                &nbsp;&nbsp;document.write("x=" + x);<br>
+                &lt;/script&gt;
+            </div>
+            <div class="note">
+                <p><strong>Fix:</strong> Changed <code>Var</code> to <code>var</code> and replaced the comma with a + for proper string concatenation. Also added semicolons for better code style.</p>
+            </div>
+        </div>
+
+        <div class="test-area">
+            <h3>Test the corrected code:</h3>
+            <button onclick="runCorrected3()">Run Corrected Exercise 3</button>
+            <div class="result" id="resultCorrected3"></div>
+        </div>
+    </div>
+
+    <script>
+        // Exercise 1
+        function runExercise1() {
+            var output = "";
+            var n1 = "5"; // Simulating user input
+            var n2 = "3"; // Simulating user input
+            output = "The sum of " + n1 + " and " + n2 + " is " + n1 + n2;
+            document.getElementById("result1").innerHTML = "<strong>Output:</strong> " + output;
+        }
+
+        function runCorrected1() {
+            var output = "";
+            var n1 = Number("5"); // Simulating user input
+            var n2 = Number("3"); // Simulating user input
+            output = "The sum of " + n1 + " and " + n2 + " is " + (n1 + n2);
+            document.getElementById("resultCorrected1").innerHTML = "<strong>Output:</strong> " + output;
+        }
+
+        // Exercise 2
+        function runExercise2() {
+            var output = "";
+            var n1 = 1 * "5"; // Simulating user input
+            var n2 = 1 * "3"; // Simulating user input
+            output = "The sum of " + n1 + " and " + n2 + " is " + n1 + n2;
+            document.getElementById("result2").innerHTML = "<strong>Output:</strong> " + output;
+        }
+
+        function runCorrected2() {
+            var output = "";
+            var n1 = 1 * "5"; // Simulating user input
+            var n2 = 1 * "3"; // Simulating user input
+            output = "The sum of " + n1 + " and " + n2 + " is " + (n1 + n2);
+            document.getElementById("resultCorrected2").innerHTML = "<strong>Output:</strong> " + output;
+        }
+
+        // Exercise 3
+
+        /*
+
+        This is how I should have wrote the code but because if I use this method the answer will not be shown in the Page
+        but an entire new page alltogether that why I'm using the JavaScript code Just bellow this comment
+        function runExercise3() {
+            try {
+                Var x = 2*2;
+                document.write("x=", x);
+            } catch (e) {
+                document.getElementById("result3").innerHTML = "<strong>Error:</strong> " + e.message;
+            }
+        }
+        */
+
+
+
+        function runExercise3() {
+    try {
+        var x = 2 * 2;
+        document.getElementById("result3").innerHTML = "x = " + x;
+    } catch (e) {
+        document.getElementById("result3").innerHTML = "<strong>Error:</strong> " + e.message;
+    }
+}
+
+
+        function runCorrected3() {
+            var output = "";
+            var x = 2*2;
+            output = "x=" + x;
+            document.getElementById("resultCorrected3").innerHTML = "<strong>Output:</strong> " + output;
+        }
+    </script>
+</body>
+</html>

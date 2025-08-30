@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Assignment 2 - Day and Month Changer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="portfolio.css">
+    
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">FA</a>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">PARTNERS</a></li>
+                    <li><a href="assignment1.html">ASSIGNMENT 1</a></li>
+                    <li><a href="assignment1b.html">ASSIGNMENT 1b</a></li>
+                    <li><a href="assignment2.html">ASSIGNMENT 2</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+       
+
+        <div class="content">
+            <div class="panel">
+                <h2>Day of the Week</h2>
+                <div class="display">
+                    <div class="label">Current Day</div>
+                    <div class="day-display" id="dayDisplay">Monday</div>
+                </div>
+                <div class="buttons">
+                    <button onclick="changeDay()">Change Day</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>Month of the Year</h2>
+                <div class="display">
+                    <div class="label">Current Month</div>
+                    <div class="month-display" id="monthDisplay">January</div>
+                </div>
+                <div class="buttons">
+                    <button onclick="changeMonth()">Change Month</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>Assignment Requirements:</h3>
+            <ul>
+                <li>Use CSS to style the page and buttons with different background colors</li>
+                <li>Implement day changing functionality that cycles through days of the week</li>
+                <li>Implement month changing functionality that cycles through months of the year</li>
+                <li>Use arrays to store day and month names</li>
+            </ul>
+            
+            <div class="code">
+                // JavaScript arrays used:<br>
+                var daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];<br>
+                var monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            </div>
+        </div>
+
+        <footer>
+            <p>JavaScript Assignment 2 - Interactive Day and Month Changer</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize variables
+        var dayIndex = 0;
+        var monthIndex = 0;
+        
+        // Arrays with day and month names
+        var daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        var monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", 
+                           "August", "September", "October", "November", "December"];
+        
+        // Function to change the day
+        function changeDay() {
+            dayIndex = (dayIndex + 1) % daysOfWeek.length;
+            document.getElementById("dayDisplay").textContent = daysOfWeek[dayIndex];
+        }
+        
+        // Function to change the month
+        function changeMonth() {
+            monthIndex = (monthIndex + 1) % monthsOfYear.length;
+            document.getElementById("monthDisplay").textContent = monthsOfYear[monthIndex];
+        }
+    </script>
+</body>
+</html>

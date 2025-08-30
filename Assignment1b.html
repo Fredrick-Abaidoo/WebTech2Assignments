@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1 Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="portfolio.css">
+   
+</head>
+<body>
+        <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">FA</a>
+                <ul class="nav-links">
+                   <li><a href="index.html" class="active">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">PARTNERS</a></li>
+                    <li><a href="assignment1.html">ASSIGNMENT 1</a></li>
+                    <li><a href="assignment1b.html">ASSIGNMENT 1b</a></li>
+                    <li><a href="assignment2.html">ASSIGNMENT 2</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+        <div class="content">
+            <!-- Exercise 1 -->
+            <div class="exercise">
+                <h2>Exercise 1: Welcome Message</h2>
+                <p class="description">Write a web page with JavaScript to output "Welcome to my very special page" with a line break between "my" and "very".</p>
+                
+                <div class="code-container">
+                    // JavaScript code<br>
+                    document.getElementById("welcomeMessage").innerHTML = "Welcome to my&lt;br&gt;very special page";
+                </div>
+                
+                <button onclick="showWelcomeMessage()">Show Welcome Message</button>
+                
+                <div class="output" id="welcomeMessage">
+                    Message will appear here
+                </div>
+            </div>
+
+            <!-- Exercise 2 -->
+            <div class="exercise">
+                <h2>Exercise 2: Image in Paragraph</h2>
+                <p class="description">Write a web page with JavaScript that writes a paragraph with an image inside of it.</p>
+                
+                <div class="code-container">
+                    // JavaScript code<br>
+                    var paragraph = "&lt;p&gt;Here is a beautiful landscape image: &lt;img src='https://picsum.photos/400/200' alt='Landscape'&gt;. This image was added using JavaScript.&lt;/p&gt;";<br>
+                    document.getElementById("imageParagraph").innerHTML = paragraph;
+                </div>
+                
+                <button onclick="showImageParagraph()">Show Paragraph with Image</button>
+                
+                <div class="output" id="imageParagraph">
+                    Paragraph with image will appear here
+                </div>
+            </div>
+
+            <!-- Exercise 3 -->
+            <div class="exercise">
+                <h2>Exercise 3: Number Operations</h2>
+                
+                <div class="task">
+                    <h3>3a: Collect and Display a Number</h3>
+                    <p class="description">Collect a number using prompt() and display it using alert().</p>
+                    
+                    <div class="code-container">
+                        // JavaScript code<br>
+                        var number = prompt("Please enter a number:");<br>
+                        alert("You entered: " + number);
+                    </div>
+                    
+                    <button onclick="collectNumber()">Collect and Display Number</button>
+                </div>
+                
+                <div class="task">
+                    <h3>3b: Multiply Two Numbers</h3>
+                    <p class="description">Collect two numbers and display their product.</p>
+                    
+                    <div class="code-container">
+                        // JavaScript code<br>
+                        var num1 = parseFloat(prompt("Enter first number:"));<br>
+                        var num2 = parseFloat(prompt("Enter second number:"));<br>
+                        var product = num1 * num2;<br>
+                        alert("The product of " + num1 + " and " + num2 + " is " + product);
+                    </div>
+                    
+                    <button onclick="multiplyNumbers()">Multiply Two Numbers</button>
+                </div>
+                
+                <div class="task">
+                    <h3>3c: Find the Larger Number</h3>
+                    <p class="description">Collect two numbers and display the larger one.</p>
+                    
+                    <div class="code-container">
+                        // JavaScript code<br>
+                        var num1 = parseFloat(prompt("Enter first number:"));<br>
+                        var num2 = parseFloat(prompt("Enter second number:"));<br>
+                        var larger = (num1 > num2) ? num1 : num2;<br>
+                        alert("The larger number between " + num1 + " and " + num2 + " is " + larger);
+                    </div>
+                    
+                    <button onclick="findLargerNumber()">Find Larger Number</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Assignment 1 - JavaScript Fundamentals</p>
+        </footer>
+    </div>
+
+    <script>
+        // Exercise 1: Welcome message with line break
+        function showWelcomeMessage() {
+            document.getElementById("welcomeMessage").innerHTML = "Welcome to my<br>very special page";
+        }
+
+        // Exercise 2: Paragraph with image
+        function showImageParagraph() {
+            var paragraph = "<p>Here is a beautiful landscape image: <img src='https://picsum.photos/400/200' alt='Landscape'>. This image was added using JavaScript.</p>";
+            document.getElementById("imageParagraph").innerHTML = paragraph;
+        }
+
+        // Exercise 3a: Collect and display a number
+        function collectNumber() {
+            var number = prompt("Please enter a number:");
+            alert("You entered: " + number);
+        }
+
+        // Exercise 3b: Multiply two numbers
+        function multiplyNumbers() {
+            var num1 = parseFloat(prompt("Enter first number:"));
+            var num2 = parseFloat(prompt("Enter second number:"));
+            
+            // Check if inputs are valid numbers
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid numbers!");
+                return;
+            }
+            
+            var product = num1 * num2;
+            alert("The product of " + num1 + " and " + num2 + " is " + product);
+        }
+
+        // Exercise 3c: Find the larger number
+        function findLargerNumber() {
+            var num1 = parseFloat(prompt("Enter first number:"));
+            var num2 = parseFloat(prompt("Enter second number:"));
+            
+            // Check if inputs are valid numbers
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid numbers!");
+                return;
+            }
+            
+            var larger = (num1 > num2) ? num1 : num2;
+            alert("The larger number between " + num1 + " and " + num2 + " is " + larger);
+        }
+    </script>
+</body>
+</html>
